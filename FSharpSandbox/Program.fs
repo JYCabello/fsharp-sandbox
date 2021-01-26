@@ -1,8 +1,4 @@
-﻿// Learn more about F# at http://fsharp.org
-
-open System
-
-let rec mapStackOverflow f = function
+﻿let rec mapStackOverflow f = function
     | [] -> []
     | x::xs -> f x::mapStackOverflow f xs
 
@@ -12,7 +8,7 @@ let mapTailRecAcc fn lst =
         | x::xs -> loop (fn x :: acc) xs
     loop lst []
 
-let map f l =
+let mapCont f l =
     let rec loop cont = function
         | [] -> cont []
         | x::xs -> loop ( fun acc -> cont (f x::acc) ) xs
@@ -20,6 +16,7 @@ let map f l =
 
 [<EntryPoint>]
 let main argv =
+    FSharpSandbox.TypeFiddling.printPerson
     let meh = [1..10_000_000] |> mapTailRecAcc ((+) 1)
-    printfn "%i" meh.Length
+    printfn "Lenght is %i" meh.Length
     0
