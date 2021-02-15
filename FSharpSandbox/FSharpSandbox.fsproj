@@ -9,6 +9,7 @@
   <ItemGroup>
     <Compile Include="TypeFiddling.fs" />
     <Compile Include="Program.fs" />
+    <None Include="ForFunAndProfit.fsx" />
   </ItemGroup>
 
   <ItemGroup>
